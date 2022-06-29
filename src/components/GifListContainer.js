@@ -30,23 +30,26 @@ const GifListContainer = () => {
       .then(r => r.json())
       .then(gifData => {
         console.log(gifData.data)
-
-
         setGifList(gifData.data)
-        // console.log(gifList) // Why does this show as empty?
       }).catch(err => console.log(err))
   }, [])
 
   function onSearchSubmit(searchTerm) {
     console.log(searchTerm)
-    // search = searchTerm
+    // search = searchTerm 
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=e3zH1C2XdCygrfGA34d3y734qEPkG355&rating=g&limit=3`)
+      .then(r => r.json())
+      .then(gifData => {
+        setGifList(gifData.data)
+      })
 
   }
 
+
   return (
     <div>
+      <GifSearch onSearchSubmit={onSearchSubmit} />
       <ul>
-        <GifSearch onSearchSubmit={onSearchSubmit} />
         <GifList gifList={gifList} />
       </ul>
     </div>

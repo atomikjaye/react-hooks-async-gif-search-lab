@@ -29,7 +29,7 @@ const GifSearch = ({ onSearchSubmit }) => {
             onChange={handleSearchChange}
           />
           <Button type="submit" variant="outline-secondary" id="button-addon2">
-            Button
+            Submit
           </Button>
         </InputGroup>
       </form>
