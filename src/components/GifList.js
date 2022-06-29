@@ -3,7 +3,7 @@ const GifList = ({ gifList }) => {
   const displayGifs = gifList.map((gif) => {
     return (
       <li>
-        <img src={gif} key={gif} />
+        <img src={gif.images.original.url} key={gif} />
       </li>
     )
   })
